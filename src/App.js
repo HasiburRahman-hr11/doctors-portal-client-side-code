@@ -1,25 +1,77 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Appointments from './Admin/Pages/Appointments/Appointments';
+import Dashboard from './Admin/Pages/Dashboard/Dashboard';
+import Patients from './Admin/Pages/Patients/Patients';
+import Prescriptions from './Admin/Pages/Prescriptions/Prescriptions';
+import ManageUsers from './Admin/Pages/ManageUsers/ManageUsers';
+import Appointment from './Pages/Appointment/Appointment';
+import Home from './Pages/Home/Home';
+import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
+import PageScroll from './Components/PageScroll/PageScroll';
+import PrivateRoute from './utils/PrivateRoute';
+import Services from './Admin/Pages/Services/Services';
+import EditUser from './Admin/Pages/EditUser/EditUser';
+import AdminRoute from './utils/AdminRoute';
+import EditAppointment from './Admin/Pages/EditAppointment/EditAppointment';
+import Profile from './Pages/Profile/Profile';
+import SingleAppointment from './Admin/Pages/SingleAppointment/SingleAppointment';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <PageScroll />
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/home">
+          <Home />
+        </Route>
+        <PrivateRoute exact path="/appointment">
+          <Appointment />
+        </PrivateRoute>
+        <PrivateRoute exact path="/profile">
+          <Profile />
+        </PrivateRoute>
+        <Route exact path="/login">
+          <Login />
+        </Route>
+        <Route exact path="/register">
+          <Register />
+        </Route>
+
+        <AdminRoute exact path="/admin">
+          <Dashboard />
+        </AdminRoute>
+        <AdminRoute exact path="/admin/services">
+          <Services />
+        </AdminRoute>
+        <AdminRoute exact path="/admin/patients">
+          <Patients />
+        </AdminRoute>
+        <AdminRoute exact path="/admin/appointments">
+          <Appointments />
+        </AdminRoute>
+        <AdminRoute exact path="/admin/appointments/:id">
+          <SingleAppointment />
+        </AdminRoute>
+        <AdminRoute exact path="/admin/appointments/edit/:id">
+          <EditAppointment />
+        </AdminRoute>
+        <AdminRoute exact path="/admin/prescriptions">
+          <Prescriptions />
+        </AdminRoute>
+        <AdminRoute exact path="/admin/users">
+          <ManageUsers />
+        </AdminRoute>
+        <AdminRoute exact path="/admin/users/edit/:email">
+          <EditUser />
+        </AdminRoute>
+      </Switch>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

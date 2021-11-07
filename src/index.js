@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AuthContextProvider from './Context/AuthContext/AuthContext';
+import AppointmentContextProvider from './Context/AppointmentContext/AppointmentContext';
+import UserContextProvider from './Context/UserContext/UserContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AuthContextProvider>
+      <UserContextProvider>
+        <AppointmentContextProvider>
+          <App />
+        </AppointmentContextProvider>
+      </UserContextProvider>
+    </AuthContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

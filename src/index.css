@@ -1,13 +1,256 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #1CC7C1;
+  --secondary-color: #3A4256;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  color: #3A3A3C;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+img {
+  display: inline-block;
+}
+
+img,
+form,
+input,
+textarea,
+select {
+  width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  font-size: 16px;
+  outline: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p {
+  line-height: 25px;
+}
+
+.btn {
+  height: 42px;
+  text-align: center;
+  padding: 10px 20px;
+  display: inline-block;
+  line-height: 23px;
+  border: 0;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+
+
+.btn-primary {
+  color: #fff;
+  background: rgb(25, 211, 176);
+  background: linear-gradient(90deg, rgba(25, 211, 176, 1) 0%, rgba(22, 210, 195, 1) 40%, rgba(16, 207, 233, 1) 100%);
+}
+
+.btn-primary:hover {
+  background: rgb(25, 211, 176);
+  background: linear-gradient(90deg, rgba(16, 207, 233, 1) 0%, rgba(22, 210, 195, 1) 40%, rgba(25, 211, 176, 1) 100%);
+}
+
+.section-header {
+  text-align: center;
+}
+
+.section-header h5 {
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 35px;
+  font-weight: 600;
+  color: var(--secondary-color);
+  text-transform: capitalize;
+}
+
+/* Blog Section */
+.blog-date {
+  color: #B9B8BB;
+  font-size: 14px;
+}
+
+.blog-item:hover {
+  background: rgb(25, 211, 176);
+  background: linear-gradient(90deg, rgba(25, 211, 176, 1) 0%, rgba(22, 210, 195, 1) 40%, rgba(16, 207, 233, 1) 100%);
+  color: #fff;
+}
+
+.blog-item:hover .blog-date {
+  color: #fff;
+}
+
+/* Form */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  height: 45px;
+  padding: 0 10px;
+}
+
+
+.contact-input {
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  height: 45px;
+  padding: 10px;
+}
+
+textarea.contact-input {
+  min-height: 130px;
+}
+
+.contact-input::placeholder,
+.form-control::placeholder {
+  color: #B2B1B4;
+}
+
+/* Auth Form */
+.auth-input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid #999999;
+  padding: 10px;
+}
+
+/* Footer */
+.footer-widget h4 {
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.footer-widget ul li a {
+  color: #838A9E;
+  padding: 7px 0;
+  display: inline-block;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 50%;
+  margin-right: 15px;
+  transition: all 0.4s ease;
+}
+
+.footer-social a:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+
+
+@media only screen and (max-width:450px) {
+  .section-header h2 {
+    font-size: 25px;
+  }
+}
+
+
+
+
+
+/* Admin Panel */
+.admin-page {
+  padding-left: 300px;
+  padding-top: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+  background-color: #F4FDFB;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.admin-btn {
+  height: 35px;
+  line-height: 25px;
+  border-radius: 5px;
+  padding: 5px 15px;
+  text-align: center;
+  display: inline-block;
+  color: #fff;
+  cursor: pointer;
+}
+
+.admin-btn.btn-pending{
+  background-color: #12D0D3;
+}
+.admin-btn.btn-approved{
+  background-color: #38AF86;
+}
+.admin-btn.btn-canceled{
+  background-color: #F1536E;
+}
+
+.admin-table-container::-webkit-scrollbar {
+  width: 10px;
+  /* width of the entire scrollbar */
+}
+
+.admin-table-container::-webkit-scrollbar-track {
+  background: #ddd;
+  border-radius: 5px;
+}
+
+.admin-table-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+@media only screen and (max-width:1200px) {
+  .admin-page {
+    padding-left: 30px;
+    padding-top: 90px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+  }
 }
