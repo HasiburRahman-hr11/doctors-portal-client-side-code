@@ -6,7 +6,6 @@ import AppsIcon from '@mui/icons-material/Apps';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
 import ReceiptIcon from '@mui/icons-material/Receipt';
-import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Typography from '@mui/material/Typography';
 import useAuth from '../../../hooks/useAuth';
@@ -58,20 +57,8 @@ const Navbar = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/admin/patients">
-                                <PeopleOutlineIcon className="admin-menu-icon" />
-                                Patients
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/admin/prescriptions">
-                                <ReceiptIcon className="admin-menu-icon" />
-                                Prescription
-                            </NavLink>
-                        </li>
-                        <li>
                             <NavLink to="/admin/users">
-                                <SettingsIcon className="admin-menu-icon" />
+                                <PeopleOutlineIcon className="admin-menu-icon" />
                                 Manage Users
                             </NavLink>
                         </li>

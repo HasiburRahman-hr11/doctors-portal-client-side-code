@@ -4,10 +4,12 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { AppointmentContext } from '../../../Context/AppointmentContext/AppointmentContext';
 import Loading from '../../../Components/Loading/Loading';
+import {UserContext} from '../../../Context/UserContext/UserContext';
 
 
 const DashboardInfo = () => {
     const { appointments, loading } = useContext(AppointmentContext);
+    const {users} = useContext(UserContext);
 
     const totalAppointments = appointments?.length;
     const pendingAppointments = appointments.filter((item) => item.status === 'pending').length;
@@ -107,12 +109,12 @@ const DashboardInfo = () => {
                             fontWeight: 'bold',
                             marginRight: '10px'
                         }}>
-                            78
+                            {users.length}
                         </Typography>
                         <Typography variant="p" component="p" sx={{
                             lineHeight: '18px'
                         }}>
-                            Total <br /> Patients
+                            Total <br /> Users
                         </Typography>
                     </Box>
                 </Grid>

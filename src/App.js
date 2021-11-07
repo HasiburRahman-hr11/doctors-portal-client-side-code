@@ -2,8 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Appointments from './Admin/Pages/Appointments/Appointments';
 import Dashboard from './Admin/Pages/Dashboard/Dashboard';
-import Patients from './Admin/Pages/Patients/Patients';
-import Prescriptions from './Admin/Pages/Prescriptions/Prescriptions';
 import ManageUsers from './Admin/Pages/ManageUsers/ManageUsers';
 import Appointment from './Pages/Appointment/Appointment';
 import Home from './Pages/Home/Home';
@@ -48,9 +46,6 @@ const App = () => {
         <AdminRoute exact path="/admin/services">
           <Services />
         </AdminRoute>
-        <AdminRoute exact path="/admin/patients">
-          <Patients />
-        </AdminRoute>
         <AdminRoute exact path="/admin/appointments">
           <Appointments />
         </AdminRoute>
@@ -59,9 +54,6 @@ const App = () => {
         </AdminRoute>
         <AdminRoute exact path="/admin/appointments/edit/:id">
           <EditAppointment />
-        </AdminRoute>
-        <AdminRoute exact path="/admin/prescriptions">
-          <Prescriptions />
         </AdminRoute>
         <AdminRoute exact path="/admin/users">
           <ManageUsers />
