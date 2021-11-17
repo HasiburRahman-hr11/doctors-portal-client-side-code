@@ -68,23 +68,23 @@ const Navigation = () => {
                     }} >
                         <div className={menuOpen ? `header_right active` : 'header_right'}>
                             <CloseIcon className="menu_close" onClick={() => setMenuOpen(false)} />
-                            <ul className="main-menu" onClick={() => setMenuOpen(false)}>
-                                <li className="menu-item">
+                            <ul className="main-menu">
+                                <li className="menu-item" onClick={() => setMenuOpen(false)}>
                                     <NavHashLink smooth activeStyle={{ color: 'var(--primary-color)' }} to="/home#hero">Home</NavHashLink>
                                 </li>
-                                <li className="menu-item">
+                                <li className="menu-item" onClick={() => setMenuOpen(false)}>
                                     <NavHashLink smooth activeStyle={{ color: 'var(--primary-color)' }} to="/home#about">About</NavHashLink >
                                 </li>
-                                <li className="menu-item">
+                                <li className="menu-item" onClick={() => setMenuOpen(false)}>
                                     <NavHashLink smooth activeStyle={{ color: 'var(--primary-color)' }} to="/home#services">Dental Services</NavHashLink >
                                 </li>
-                                <li className="menu-item">
+                                <li className="menu-item" onClick={() => setMenuOpen(false)}>
                                     <NavHashLink smooth activeStyle={{ color: 'var(--primary-color)' }} to="/home#reviews">Reviews</NavHashLink >
                                 </li>
-                                <li className="menu-item">
+                                <li className="menu-item" onClick={() => setMenuOpen(false)}>
                                     <NavHashLink smooth activeStyle={{ color: 'var(--primary-color)' }} to="/home#blog">Blog</NavHashLink >
                                 </li>
-                                <li className="menu-item">
+                                <li className="menu-item" onClick={() => setMenuOpen(false)}>
                                     <NavHashLink smooth activeStyle={{ color: 'var(--primary-color)' }} to="/home#contact">Contact Us</NavHashLink >
                                 </li>
                                 {user?.email || user?.displayName ? (
@@ -130,7 +130,7 @@ const Navigation = () => {
                                             transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                                             anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
                                         >
-                                            <MenuItem>
+                                            <MenuItem onClick={() => setMenuOpen(false)}>
                                                 <Link to="/profile" style={{
                                                     display: 'flex',
                                                     alignItems: 'center',
@@ -140,7 +140,7 @@ const Navigation = () => {
                                                 </Link >
                                             </MenuItem>
                                             {isAdmin && (
-                                                <MenuItem>
+                                                <MenuItem onClick={() => setMenuOpen(false)}>
                                                     <Link to="/admin" style={{
                                                         display: 'flex',
                                                         alignItems: 'center',
@@ -153,7 +153,10 @@ const Navigation = () => {
                                             <Divider />
 
 
-                                            <MenuItem onClick={() => logOutUser()}>
+                                            <MenuItem onClick={() => {
+                                                logOutUser();
+                                                setMenuOpen(false)
+                                            }}>
                                                 <ListItemIcon>
                                                     <Logout fontSize="small" />
                                                 </ListItemIcon>
