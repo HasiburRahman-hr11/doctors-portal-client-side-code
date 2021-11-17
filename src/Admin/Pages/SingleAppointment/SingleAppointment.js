@@ -15,7 +15,7 @@ const SingleAppointment = () => {
     useEffect(() => {
         const getAppointment = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:8000/appointments/${id}`);
+                const { data } = await axios.get(`https://doctors-portal-api.herokuapp.com/appointments/${id}`);
 
                 setAppointment(data);
                 setLoading(false);

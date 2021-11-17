@@ -11,37 +11,43 @@ const bookings = [
         _id: '01',
         name: 'Teeth Orthodontics',
         time: '10.00 AM - 11.00 AM',
-        spaces: 10
+        spaces: 10,
+        price:'21'
     },
     {
         _id: '02',
         name: 'Cosmetic Dentistry',
         time: '11.05 AM - 12.30 AM',
-        spaces: 15
+        spaces: 15,
+        price:'25'
     },
     {
         _id: '03',
         name: 'Teeth Cleaning',
         time: '12.35 PM - 01.45 PM',
-        spaces: 12
+        spaces: 12,
+        price:'15'
     },
     {
         _id: '04',
         name: 'Cavity Protection',
         time: '05.00 PM - 06.30 PM',
-        spaces: 15
+        spaces: 15,
+        price:'20'
     },
     {
         _id: '05',
-        name: 'Teeth Orthodontics',
+        name: 'Teeth Implants',
         time: '06.35 PM - 08.00 PM',
-        spaces: 12
+        spaces: 12,
+        price:'30'
     },
     {
         _id: '06',
-        name: 'Teeth Cleaning',
+        name: 'Teeth Fillings',
         time: '08.00 PM - 09.30 PM',
-        spaces: 11
+        spaces: 11,
+        price:'25'
     },
 
 ]

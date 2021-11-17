@@ -1,0 +1,13 @@
+.stripe_checkout_form{
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.stripe_checkout_form .CardField-child{
+    display: block;
+    width: 100%;
+}

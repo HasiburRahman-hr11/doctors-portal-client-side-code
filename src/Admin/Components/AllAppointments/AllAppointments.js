@@ -17,7 +17,7 @@ import AlertBox from '../../../Components/Shared/AlertBox/AlertBox';
 import { AppointmentContext } from '../../../Context/AppointmentContext/AppointmentContext';
 
 
-const columns = ['Date', 'Time', 'Name', 'Service', 'Status'];
+const columns = ['Date', 'Time', 'Name', 'Service', 'Status' , 'Paid'];
 
 
 const AllAppointments = ({ title }) => {
@@ -44,7 +44,7 @@ const AllAppointments = ({ title }) => {
         const agreed = window.confirm('Delete this appointment?')
         if (agreed) {
             try {
-                const res = await axios.delete(`http://localhost:8000/appointments/${id}`, {
+                const res = await axios.delete(`https://doctors-portal-api.herokuapp.com/appointments/${id}`, {
                     headers: {
                         token: `Bearer ${token}`
                     }
@@ -158,6 +158,9 @@ const AllAppointments = ({ title }) => {
                                         >
                                             {row.status}
                                         </Box>
+                                    </TableCell>
+                                    <TableCell align="left">
+                                        {row.paid ? 'Yes' : 'No'}
                                     </TableCell>
                                     <TableCell align="right" sx={{
                                                 minWidth:'120px'

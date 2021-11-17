@@ -15,6 +15,7 @@ import AdminRoute from './utils/AdminRoute';
 import EditAppointment from './Admin/Pages/EditAppointment/EditAppointment';
 import Profile from './Pages/Profile/Profile';
 import SingleAppointment from './Admin/Pages/SingleAppointment/SingleAppointment';
+import Payment from './Pages/Payment/Payment';
 
 const App = () => {
   return (
@@ -32,6 +33,9 @@ const App = () => {
         </PrivateRoute>
         <PrivateRoute exact path="/profile">
           <Profile />
+        </PrivateRoute>
+        <PrivateRoute path="/payment/:appointmentId">
+          <Payment />
         </PrivateRoute>
         <Route exact path="/login">
           <Login />

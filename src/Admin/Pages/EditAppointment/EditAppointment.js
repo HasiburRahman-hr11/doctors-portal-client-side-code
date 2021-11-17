@@ -33,7 +33,7 @@ const EditAppointment = () => {
         e.preventDefault();
         setSpinner(true);
         try {
-            const {data} = await axios.put(`http://localhost:8000/appointments/${id}`, appointmentInfo , {
+            const {data} = await axios.put(`https://doctors-portal-api.herokuapp.com/appointments/${id}`, appointmentInfo , {
                 headers:{
                     token: `Bearer ${token}`
                 }
@@ -61,7 +61,7 @@ const EditAppointment = () => {
     useEffect(() => {
         const getAppointment = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:8000/appointments/${id}`);
+                const { data } = await axios.get(`https://doctors-portal-api.herokuapp.com/appointments/${id}`);
 
                 setAppointment(data);
                 setLoading(false);

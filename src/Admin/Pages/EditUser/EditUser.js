@@ -35,7 +35,7 @@ const EditUser = () => {
         e.preventDefault();
         setSpinner(true);
         try {
-            const {data} = await axios.put(`http://localhost:8000/users/${email}`, userInfo , {
+            const {data} = await axios.put(`https://doctors-portal-api.herokuapp.com/users/${email}`, userInfo , {
                 headers:{
                     token: `Bearer ${token}`
                 }
@@ -62,7 +62,7 @@ const EditUser = () => {
     useEffect(() => {
         const getUser = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:8000/users/${email}`);
+                const { data } = await axios.get(`https://doctors-portal-api.herokuapp.com/users/${email}`);
 
                 setUser(data);
                 setLoading(false);

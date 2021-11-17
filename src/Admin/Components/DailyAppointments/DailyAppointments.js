@@ -33,7 +33,7 @@ const DailyAppointments = ({ date }) => {
     useEffect(() => {
         const getDailyAppointments = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:8000/appointments?date=${date.toLocaleDateString()}`);
+                const { data } = await axios.get(`https://doctors-portal-api.herokuapp.com/appointments?date=${date.toLocaleDateString()}`);
 
                 setAppointments(data);
 

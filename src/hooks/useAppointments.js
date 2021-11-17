@@ -13,7 +13,7 @@ const useAppointments = () => {
     useEffect(() => {
         const getAllAppointments = async () => {
             try {
-                const { data } = await axios.get('http://localhost:8000/appointments');
+                const { data } = await axios.get('https://doctors-portal-api.herokuapp.com/appointments');
 
                 const sortedAppointmens = data.sort((a,b) =>  new Date(b.createdAt) - new Date(a.createdAt));
                 setAppointments(sortedAppointmens);

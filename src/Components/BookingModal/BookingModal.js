@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 import useAuth from '../../hooks/useAuth';
+import { useHistory } from 'react-router-dom';
 
 import axios from 'axios';
 import { AppointmentContext } from '../../Context/AppointmentContext/AppointmentContext';
@@ -34,6 +35,7 @@ const style = {
 const BookingModal = (props) => {
 
     const { user } = useAuth();
+    const history = useHistory();
 
     const {userAppointments, setUserAppointments} = useContext(AppointmentContext);
 
@@ -55,7 +57,8 @@ const BookingModal = (props) => {
         gender: 'male',
         age: '',
         schedule: booking.time,
-        service: booking.name
+        service: booking.name,
+        price:booking.price
     })
 
     const handleBookingFormSubmit = async (e) => {
@@ -66,14 +69,15 @@ const BookingModal = (props) => {
         }
 
         try {
-            const { data } = await axios.post('http://localhost:8000/appointments/create', appointmentInfo);
+            const { data } = await axios.post('https://doctors-portal-api.herokuapp.com/appointments/create', appointmentInfo);
 
             if (data._id) {
                 setUserAppointments([...userAppointments , data])
                 handleCloseModal();
                 setAlert(true);
                 setAlertMessage('Booking Successful');
-                setAlertType('success')
+                setAlertType('success');
+                history.push('/profile');
             }
         } catch (error) {
             console.log(error);
