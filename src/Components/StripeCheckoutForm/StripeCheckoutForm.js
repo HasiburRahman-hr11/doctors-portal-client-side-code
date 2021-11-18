@@ -73,7 +73,11 @@ const StripeCheckoutForm = ({ appointment }) => {
             clientSecret,
             {
                 payment_method: {
-                    card: card
+                    card: card,
+                    billing_details: {
+                        name: appointment.name,
+                        email: appointment.email,
+                    }
                 },
             },
         );
