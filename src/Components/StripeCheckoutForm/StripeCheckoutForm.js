@@ -51,6 +51,10 @@ const StripeCheckoutForm = ({ appointment }) => {
         const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: 'card',
             card,
+            billing_details: {
+                name: appointment.name,
+                email: appointment.email,
+            }
         });
 
         if (error) {
@@ -59,6 +63,7 @@ const StripeCheckoutForm = ({ appointment }) => {
             setAlertVerity('error');
             setAlert(true);
         } else {
+            console.log(paymentMethod)
             setAlert(false);
         }
 
@@ -68,11 +73,7 @@ const StripeCheckoutForm = ({ appointment }) => {
             clientSecret,
             {
                 payment_method: {
-                    card: card,
-                    billing_details: {
-                        name: appointment.name,
-                        email: appointment.email,
-                    },
+                    card: card
                 },
             },
         );
@@ -93,8 +94,10 @@ const StripeCheckoutForm = ({ appointment }) => {
 
             const paymentInfo = {
                 transactionId: paymentIntent.id,
+                card: paymentMethod.card.brand,
                 created: paymentIntent.created,
-                amount: paymentIntent.amount / 100
+                amount: paymentIntent.amount / 100,
+                last4: paymentMethod.card.last4
             }
             const updateData = {
                 paid: true,
